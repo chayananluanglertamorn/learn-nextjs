@@ -18,6 +18,7 @@ export async function createInvoice(formData: FormData) {
     amount: formData.get('amount'),
     status: formData.get('status'),
   })
+  const amountInCents = amount * 100;
   // Test it out:
-  console.log(typeof customerId, typeof amount, typeof status)
+  console.log(amount, amountInCents)
 }
