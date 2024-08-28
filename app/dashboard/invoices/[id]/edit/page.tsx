@@ -2,7 +2,8 @@ import Form from '@/app/ui/invoices/create-form';
 import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
 import { fetchCustomers } from '@/app/lib/data';
  
-export default async function Page() {
+export default async function Page({ params }: { params: { id: string } }) {
+  const id = params.id;
   const customers = await fetchCustomers();
  
   return (
@@ -11,8 +12,8 @@ export default async function Page() {
         breadcrumbs={[
           { label: 'Invoices', href: '/dashboard/invoices' },
           {
-            label: 'Create Invoice',
-            href: '/dashboard/invoices/create',
+            label: 'Edit Invoice',
+            href: `/dashboard/invoices/${id}/edit`,
             active: true,
           },
         ]}
