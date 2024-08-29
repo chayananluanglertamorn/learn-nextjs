@@ -65,11 +65,6 @@ export async function updateInvoice(id: string, formData: FormData) {
 }
 
 export async function deleteInvoice(id: string) {
-  // Now, let's check what happens when an error is thrown in your Server Action. You can do this by throwing an error earlier.
-  // For example, in the deleteInvoice action, throw an error at the top of the function:
-  throw new Error('Failed to Delete Invoice');
-
-  // Unreachable code block
   try {
     await sql`DELETE FROM invoices WHERE id = ${id}`;
     revalidatePath('/dashboard/invoices');
